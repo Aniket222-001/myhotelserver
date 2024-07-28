@@ -232,7 +232,10 @@ const App = express();
 //   origin: ['http://localhost:3000', 'https://myhotel-frontend.vercel.app'],
 //   credentials: true
 // }));
-App.use(cors());
+app.use(cors({
+  origin: 'https://myhotel-frontend.vercel.app', // Replace with your frontend URL
+  credentials: true
+}));
 App.use(express.json());
 App.use(cookieParser());
 
