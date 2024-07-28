@@ -14,24 +14,23 @@ const cloudinary = require('cloudinary').v2;
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
 
 const App = express();
-App.use(cors());
-// const allowedOrigins = [
-//   'https://myhotel-frontend.vercel.app',
-//   'http://localhost:3000'
-// ];
+const allowedOrigins = [
+  'https://myhotel-frontend.vercel.app',
+  'http://localhost:3000'
+];
 
-// App.use(cors({
-//   origin: function (origin, callback) {
-//     if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error('Not allowed by CORS'));
-//     }
-//   },
-//   credentials: true,
-//   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//   allowedHeaders: ['Content-Type', 'Authorization']
-// }))
+App.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}))
 // App.use(cors({ origin: 'http://localhost:3000', credentials: true }));
 App.use(express.json());
 App.use(cookieParser());
