@@ -16,6 +16,7 @@ const { CloudinaryStorage } = require('multer-storage-cloudinary');
 const App = express();
 const allowedOrigins = [
   'https://myhotel-frontend.vercel.app',
+  'https://myhotelserver-qgmu.vercel.app/user-places',
   'http://localhost:3000'
 ];
 
