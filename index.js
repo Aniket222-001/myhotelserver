@@ -191,7 +191,7 @@ App.get('/user-places', (req, res) => {
     res.json(await Place.find({ owner: id }));
   });
 }else{
-  res.json("token is not present")
+  res.json(null)
 }
 });
 
