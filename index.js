@@ -472,6 +472,7 @@ const cloudinary = require('cloudinary').v2;
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
 
 const App = express();
+App.use(cors({ origin: 'https://myhotel-frontend.vercel.app', credentials: true }));
 App.use(cors({ origin: 'http://localhost:3000', credentials: true }));
 App.use(express.json());
 App.use(cookieParser());
