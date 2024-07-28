@@ -183,12 +183,31 @@ App.post('/places', (req, res) => {
   });
 });
 
-App.get('/user-places', (req, res) => {
+// App.get('/user-places', (req, res) => {
+//   const { token } = req.cookies;
+//   jwt.verify(token, jwtSecret, {}, async (err, userData) => {
+//     const { id } = userData;
+//     res.json(await Place.find({ owner: id }));
+//   });
+// });
+App.get('/user-places', async (req, res) => {
   const { token } = req.cookies;
-  jwt.verify(token, jwtSecret, {}, async (err, userData) => {
-    const { id } = userData;
-    res.json(await Place.find({ owner: id }));
-  });
+  if (token) {
+    jwt.verify(token, jwtSecret, {}, async (err, userData) => {
+      if (err) {
+        return res.status(403).json({ message: 'Invalid token' });
+      }
+      const { id } = userData;
+      try {
+        const places = await Place.find({ owner: id });
+        res.json(places);
+      } catch (error) {
+        res.status(500).json({ message: 'Internal server error' });
+      }
+    });
+  } else {
+    res.status(401).json({ message: 'Token is not present' });
+  }
 });
 
 App.get('/places/:id', async (req, res) => {
