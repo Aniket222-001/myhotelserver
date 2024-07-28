@@ -661,6 +661,12 @@ App.get('/places', async (req, res) => {
   res.json(await Place.find());
 });
 
+App.get('/',(req,res)=>{
+    return res.status(404).json({
+        meassage: "sever Domain is runnin nicely so what"
+    })
+})
+
 App.listen(4000, () => {
   console.log('Server is running on port 4000');
 });
