@@ -8,8 +8,10 @@
       "src": "/(.*)",
       "dest": "/"
     }
-  ]
+  ],
+  "buildCommand": "npm install --legacy-peer-deps"
 }
+
 
 
 
