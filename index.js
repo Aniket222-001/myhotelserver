@@ -1,5 +1,4 @@
 
-
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
@@ -212,6 +211,9 @@ App.put('/places', async (req, res) => {
       res.json('ok');
     }
   });
+});
+App.get('/places', async (req, res) => {
+  res.json(await Place.find());
 });
 
 
