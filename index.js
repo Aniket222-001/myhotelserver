@@ -191,6 +191,7 @@ App.post('/places', (req, res) => {
 //   });
 // });
 App.get('/user-places', async (req, res) => {
+  mongoose.connect('mongodb+srv://bloguser:bloguser@cluster0.pzyg7m3.mongodb.net/Blogdata')
   const { token } = req.cookies;
   if (token) {
     jwt.verify(token, jwtSecret, {}, async (err, userData) => {
@@ -216,6 +217,7 @@ App.get('/places/:id', async (req, res) => {
 });
 
 App.put('/places', async (req, res) => {
+  mongoose.connect('mongodb+srv://bloguser:bloguser@cluster0.pzyg7m3.mongodb.net/Blogdata')
   const { token } = req.cookies;
   const {
     id, title,selectedOption, address, addedPhotos, description,
