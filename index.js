@@ -242,7 +242,7 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-mongoose.connect("mongodb+srv://booking:Aniket%402002@cluster0.rrneucc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+mongoose.connect('mongodb+srv://booking:Aniket%402002@cluster0.rrneucc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
   .then(() => {
     console.log('successfully connected to database');
   })
