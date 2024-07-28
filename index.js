@@ -14,14 +14,14 @@ const cloudinary = require('cloudinary').v2;
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
 
 const App = express();
-// const allowedOrigins = [
-//   'https://myhotel-frontend.vercel.app',
-//   'http://localhost:3000',
-//   'https://myhotel-frontend.vercel.app/places',
-//   'https://myhotel-frontend.vercel.app/user-places',
-// ];
+const allowedOrigins = [
+  'https://myhotel-frontend.vercel.app',
+  'http://localhost:3000',
+  'https://myhotel-frontend.vercel.app/places',
+  'https://myhotel-frontend.vercel.app/user-places',
+];
 
-App.use(cors({ origin: 'http://localhost:3000', credentials: true }));
+// App.use(cors({ origin: 'http://localhost:3000', credentials: true }));
 App.use(express.json());
 App.use(cookieParser());
 
