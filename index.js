@@ -20,7 +20,18 @@ const allowedOrigins = [
   'https://myhotel-frontend.vercel.app/places',
   'https://myhotel-frontend.vercel.app/user-places',
 ];
-
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}))
 // App.use(cors({ origin: 'http://localhost:3000', credentials: true }));
 App.use(express.json());
 App.use(cookieParser());
