@@ -16,10 +16,9 @@ const { CloudinaryStorage } = require('multer-storage-cloudinary');
 const App = express();
 const allowedOrigins = [
   'https://myhotel-frontend.vercel.app',
-  'http://localhost:3000',
-  'https://myhotel-frontend.vercel.app/places',
-  'https://myhotel-frontend.vercel.app/user-places',
+  'http://localhost:3000'
 ];
+
 app.use(cors({
   origin: function (origin, callback) {
     if (!origin || allowedOrigins.indexOf(origin) !== -1) {
