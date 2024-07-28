@@ -90,7 +90,12 @@ App.post('/login', async (req, res) => {
       if (passok) {
         jwt.sign({ email: userdoc.email, id: userdoc._id }, jwtSecret, {}, (err, token) => {
           if (err) throw err;
-          res.cookie('token', token).json(userdoc);
+           res.cookie('token', token, {
+            httpOnly: true,
+            secure: true, // Make sure this is true if using HTTPS
+            sameSite: 'None',
+            path: '/'
+          }).json(userdoc);
         });
       } else {
         res.status(422).json('wrong password');
@@ -119,7 +124,12 @@ App.get('/profile', (req, res) => {
 });
 
 App.post('/Logout', (req, res) => {
-  res.cookie('token', '').json(true);
+  res.cookie('token', '', {
+    httpOnly: true,
+    secure: true,
+    sameSite: 'None',
+    path: '/'
+  }).json(true);
 });
 
 App.post('/upload-by-link', async (req, res) => {
