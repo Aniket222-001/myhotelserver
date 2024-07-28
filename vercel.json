@@ -8,11 +8,9 @@
       "src": "/(.*)",
       "dest": "/"
     }
-  ],
-  "build": {
-    "command": "npm run install:legacy"
-  }
+  ]
 }
+
 
 
 
