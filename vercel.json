@@ -2,7 +2,6 @@
   "version": 2,
   "builds": [
     { "src": "*.js", "use": "@vercel/node" }
- 
   ],
   "routes": [
     {
@@ -10,12 +9,10 @@
       "dest": "/"
     }
   ],
-  {
   "build": {
-    "command": "npm run install:legacy && npm run build"
+    "command": "npm run install:legacy"
   }
 }
-  
-}
+
 
 
