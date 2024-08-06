@@ -17,7 +17,8 @@ const App = express();
 const allowedOrigins = [
   'https://myhotel-frontend.vercel.app',
   'https://myhotelserver-qgmu.vercel.app/user-places',
-  'http://localhost:3000'
+  'http://localhost:3000',
+  'https://explore-n-enjoy-5wt3.vercel.app'
 ];
 
 App.use(cors({
