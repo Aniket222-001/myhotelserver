@@ -44,7 +44,7 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-mongoose.connect('mongodb+srv://bloguser:bloguser@cluster0.pzyg7m3.mongodb.net/Blogdata')
+mongoose.connect(process.env.MONGO_URL)
   .then(() => {
     console.log('successfully connected to database');
   })
